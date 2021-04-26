@@ -11,7 +11,7 @@ function NavBar() {
 	<Link to="/club">Club</Link>
       </li>
       <li>
-	<Link to="/sign>"Sign</Link>
+	<Link to="/sign">Sign</Link>
       </li>
     </ul>
   );
