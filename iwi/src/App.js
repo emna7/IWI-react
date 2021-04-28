@@ -1,7 +1,8 @@
 import './App.css';
 import { Route, Link } from 'react-router-dom';
 import Club from './Club';
-import Sign from './Sign';
+import Gigs from './Gigs';
+import Signup from './Signup';
 import Event from './Event';
 import NavBar from './NavBar';
 import React from 'react';
