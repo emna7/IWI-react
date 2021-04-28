@@ -122,25 +122,7 @@ export default function SearchEvents() {
         <form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" variant="outlined" />
         </form>
-          <FormControl className={classes.FormLabel} component="fieldset">
-            <FormLabel component="legend">Paid:</FormLabel>
-            <RadioGroup row aria-label="events" name="events1" value={paid} onChange={handleChange('yes')}>
-              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-              <FormControlLabel value="no" control={<Radio />} label="No" />
-            </RadioGroup>
-          </FormControl>
-          <Accordion square expanded={expanded === 'yes'}>
-        <AccordionSummary aria-controls="panel1d-content" id="panel1d-header">
-          <Typography>Collapsible Group Item #1</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-            sit amet blandit leo lobortis eget. Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
+         
       <FormLabel className={classes.FormLabel} component="legend">Date/Time:</FormLabel>
   
       <MuiPickersUtilsProvider utils={DateFnsUtils}>

@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SearchClubs() {
-  const [privacy, setPrivacy] = React.useState('public');
+  const [privacy, setPrivacy] = React.useState();
 
   const handleChangePrivacy = (event) => {
     setPrivacy(event.target.privacy);

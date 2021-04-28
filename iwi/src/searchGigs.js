@@ -58,7 +58,8 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   FormLabel: {
-    marginTop: theme.spacing(3)
+    marginTop: theme.spacing(3),
+    marginBottom: theme.spacing(1)
   },
 
   submit: {
@@ -67,16 +68,18 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function SearchGigs() {
-  const [duration, setDuration] = React.useState('twohour');
+  const [duration, setDuration] = React.useState();
   const handleChangeDuration = (event) => {
     setDuration(event.target.duration);
   };
 
-  const [paid, setPaid] = React.useState(true);
-
-  const handleChangePaid = (event) => {
-    setPaid(event.target.paid);
-  };
+  const [paid, setPaid] = React.useState(false);
+  const handleShow = () => {
+    setPaid(true)
+    };
+  const handleHide = () => {
+    setPaid(false)
+    };
   const classes = useStyles();
 
 
@@ -87,7 +90,7 @@ export default function SearchGigs() {
       <CssBaseline />
       <div className={classes.paper}>
         <Container align="center" >
-        <Avatar alignSelf="center" className={classes.avatar}>
+        <Avatar align="center" className={classes.avatar}>
           <SearchIcon />
         </Avatar>
         </Container>
@@ -110,13 +113,15 @@ export default function SearchGigs() {
               <FormControlLabel value="morethanone" control={<Radio />} label="More than 1 day" />
             </RadioGroup>
           </FormControl>
+          <div>
           <FormControl className={classes.FormLabel} component="fieldset">
             <FormLabel component="legend">Paid:</FormLabel>
-            <RadioGroup row aria-label="gigs2" name="gigs3" value={paid} onChange={handleChangePaid}>
-              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
-              <FormControlLabel value="no" control={<Radio />} label="No" />
+            <RadioGroup row aria-label="gigs2" name="gigs3" value={paid} onChange={setPaid.isActive}>
+              <FormControlLabel value="yes" control={<Radio />} label="Yes" onChange={handleShow} />
+              <FormControlLabel value="no" control={<Radio />} label="No" onChange={handleHide}/>
             </RadioGroup>
           </FormControl>
+          </div>
           {paid && <div>
        <FormLabel className={classes.FormLabel} component="legend">Budget:</FormLabel>
 
