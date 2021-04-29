@@ -17,10 +17,6 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-
 
 function Copyright() {
   return (
@@ -36,8 +32,14 @@ function Copyright() {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    '& > *': {
+      margin: theme.spacing(1),
+    },
+  },
   paper: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(1),
     display: 'flex',
     flexDirection: 'column',
     // alignItems: 'center',
@@ -46,8 +48,8 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
+    // display: 'flex',
+    // flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center'
   },
@@ -56,85 +58,92 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(1),
   },
   FormLabel: {
-    marginTop: theme.spacing(3),
-    marginBottom: theme.spacing(1)
+    marginTop: theme.spacing(3)
   },
 
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
-
-  formControl: {
-    marginTop: theme.spacing(1),
-    width: "50%",
-    marginBottom: theme.spacing(3),
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
 }));
 
-export default function Club() {
-  const [privacy, setPrivacy] = React.useState('public');
-
-  const handleChangePrivacy = (event) => {
-    setPrivacy(event.target.privacy);
+export default function Gigs() {
+  const [duration, setDuration] = React.useState('twohour');
+  const handleChangeDuration = (event) => {
+    setDuration(event.target.duration);
   };
-  const [category, setCategory] = React.useState('');
 
-  const handleChangeCategory = (event) => {
-    setCategory(event.target.category);
+  const [paid, setPaid] = React.useState(true);
+
+  const handleChangePaid = (event) => {
+    setPaid(event.target.paid);
   };
   const classes = useStyles();
+
+
+
 
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
         <Container align="center" >
-        <Avatar align="center" className={classes.avatar}>
+        <Avatar alignSelf="center" className={classes.avatar}>
           <AddIcon />
         </Avatar>
         </Container>
         <Box textAlign="center">
         <Typography  component="h1" variant="h5">
-          Create Clubs
+          Create Gig 
         </Typography>
         </Box>
-        <FormLabel className={classes.FormLabel} component="legend">Name:</FormLabel>
+        <FormLabel className={classes.FormLabel} component="legend">Location:</FormLabel>
 
         <form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" variant="outlined" />
         </form>
           <FormControl className={classes.FormLabel} component="fieldset">
-            <FormLabel component="legend">Privacy:</FormLabel>
-            <RadioGroup row aria-label="clubs" name="clubs1" value={privacy} onChange={handleChangePrivacy}>
-              <FormControlLabel value="public" control={<Radio />} label="Public" />
-              <FormControlLabel value="private" control={<Radio />} label="Private" />
+            <FormLabel component="legend">Project duration:</FormLabel>
+            <RadioGroup aria-label="gigs" name="gigs1" value={duration} onChange={handleChangeDuration}>
+              <FormControlLabel value="twohour" control={<Radio />} label="1-2 hour" />
+              <FormControlLabel value="halfaday" control={<Radio />} label="Half a day" />
+              <FormControlLabel value="oneday" control={<Radio />} label="1 day" />
+              <FormControlLabel value="morethanone" control={<Radio />} label="More than 1 day" />
             </RadioGroup>
           </FormControl>
-
-          <FormLabel className={classes.FormLabel} component="legend">Description:</FormLabel>
-
-          <FormLabel component="legend">Category:</FormLabel>
-          <FormControl variant="filled" className={classes.FormLabel, classes.formControl}>
-            
-            
-            <InputLabel id="demo-simple-select-filled-label">Ex: Sport</InputLabel>
-            <Select
-              labelId="demo-simple-select-filled-label"
-              id="demo-simple-select-filled"
-              value={category}
-              onChange={handleChangeCategory}
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
+          <FormControl className={classes.FormLabel} component="fieldset">
+            <FormLabel component="legend">Paid:</FormLabel>
+            <RadioGroup row aria-label="gigs2" name="gigs3" value={paid} onChange={handleChangePaid}>
+              <FormControlLabel value="yes" control={<Radio />} label="Yes" />
+              <FormControlLabel value="no" control={<Radio />} label="No" />
+            </RadioGroup>
           </FormControl>
+          {paid && <div>
+       <FormLabel className={classes.FormLabel} component="legend">Budget:</FormLabel>
+
+          <form className={classes.form} noValidate>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                name="minPrice"
+                variant="outlined"
+                fullWidth
+                id="minPrice"
+                label="Min"
+                autoFocus
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                fullWidth
+                id="maxPrice"
+                label="Max"
+                name="maxPrice"
+              />
+            </Grid>
+          </Grid>
+          </form>
+        </div>}
 
           <Button
             type="submit"
@@ -143,9 +152,9 @@ export default function Club() {
             color="primary"
             className={classes.submit}
           >
-            Create Club
+            Create gig
           </Button>
-          
+          <FormLabel className={classes.FormLabel} component="legend">Description:</FormLabel>
       </div>
       <Box mt={8}>
         <Copyright />
