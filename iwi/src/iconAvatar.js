@@ -25,11 +25,11 @@ export default function IconAvatars() {
 
   return (
     <div className={classes.root}>
-      
+
       <Avatar className={classes.pink}>
         <EmojiPeopleIcon />
       </Avatar>
-      
+
     </div>
   );
 }

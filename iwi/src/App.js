@@ -1,10 +1,8 @@
 import './App.css';
 import { Route, Link } from 'react-router-dom';
-import Club from './Club';
-import Gigs from './Gigs';
-import Signup from './Signup';
 import Event from './Event';
-import NavBar from './NavBar';
+import GigInterface from './gigInterface';
+import Club from './Club';
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';

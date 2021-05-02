@@ -27,7 +27,7 @@ const marginTop={marginTop:10}
 			  		<TextField fullWidth label='First Name' placeholder="Enter your first name"/>
 			  		<TextField fullWidth label='Last Name' placeholder="Enter your last name"/>
 			  		<TextField fullWidth label='Email' placeholder="Enter your email"/>
-			  		<FormControl component="fieldset" style={"marginTop"}>
+			  		<FormControl component="fieldset" style={{'marginTop'}}>
     					<FormLabel component="legend">Gender</FormLabel>
       					<RadioGroup aria-label="gender" name="gender" style={{display: 'initial'}}>
         					<FormControlLabel value="female" control={<Radio />} label="Female" />
