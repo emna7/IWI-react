@@ -10,6 +10,7 @@ import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Box from '@material-ui/core/Box';
 import ListIcon from '@material-ui/icons/List';
+import './filterPage.css'
 
 
 
@@ -34,11 +35,16 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     backgroundColor: theme.palette.secondary.main,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: theme.spacing(2)
   },
 
   cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
   },
   card: {
     height: '100%',
@@ -66,17 +72,16 @@ export default function ClubsList() {
 
 
   return (
-    <Container className={classes.cardGrid} component="main" maxWidth="xs">
-          <Container align="center" >
-        <Avatar align="center" className={classes.avatar}>
+    <Container className={classes.cardGrid} component="main" >
+          <div className="headerList">
+          <Avatar align="center" className={classes.avatar}>
           <ListIcon />
-        </Avatar>
-        </Container>
-        <Box textAlign="center" className={classes.FormLabel}>
-        <Typography  component="h1" variant="h5" >
-          Clubs List
-        </Typography>
-        </Box>
+          </Avatar>
+          <Typography  component="h1" variant="h5">
+            Clubs List
+          </Typography>
+          </div>
+
           <Box container spacing={2}>
             {cards.map((card) => (
               <Box item key={card} xs={12} sm={6} md={4}>
@@ -86,17 +91,18 @@ export default function ClubsList() {
           <Avatar alt="Remy Sharp" src='https://source.unsplash.com/random' />
         }
 
-        title="What is Lorem Ipsum?"
+        title={<Typography gutterBottom variant="h5" component="h2">
+        Name
+        </Typography>}
       />
 
                   <CardContent className={classes.cardContent}>
-
                     <Typography>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has........................
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                     </Typography>
                   </CardContent>
                   <CardActions>
-                    <Button size="small" color="primary">
+                    <Button size="small" variant="contained" color="primary">
                       View
                     </Button>
 

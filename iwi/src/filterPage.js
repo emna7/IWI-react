@@ -6,8 +6,8 @@ import ClubsList from './clubsList0';
 import Footer from './footer.js'
 import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
-import './filterPage.css';
 import "./topbar.css";
+import './filterPage.css';
 import { Search} from "@material-ui/icons";
 
 
@@ -31,7 +31,7 @@ function FilterPage() {
   return (
     <React.Fragment>
     <TopBar/>
-    <div className="List" >
+    <div className="buttonList" >
     <Button variant="contained" color="secondary">
     Club
     </Button>
@@ -48,11 +48,11 @@ function FilterPage() {
     </div>
     <div className="listWrapper">
     <div className="topbarCenter">
-      <div className="searchbar">
-        <Search className="searchIcon" />
+      <div className="searchNamebar">
+        <Search className="searchNameIcon" />
         <input
-          placeholder="Search for a gig, a club or an event"
-          className="searchInput"
+          placeholder="Enter a name"
+          className="searchNameInput"
         />
       </div>
     </div>

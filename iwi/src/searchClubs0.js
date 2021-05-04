@@ -17,20 +17,8 @@ import Container from '@material-ui/core/Container';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import './filterPage.css'
 
-
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -40,20 +28,19 @@ const useStyles = makeStyles((theme) => ({
     // alignItems: 'center',
   },
   avatar: {
-    margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
-    marginTop: theme.spacing(8),
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    marginRight: theme.spacing(2)
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   FormLabel: {
-    marginTop: theme.spacing(3),
+    marginTop: theme.spacing(5),
     marginBottom: theme.spacing(1)
   },
 
@@ -88,20 +75,19 @@ export default function SearchClubs() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Container align="center" >
-        <Avatar align="center" className={classes.avatar}>
-          <SearchIcon />
-        </Avatar>
-        </Container>
-        <Box textAlign="center">
-        <Typography  component="h1" variant="h5">
-          Clubs Search
-        </Typography>
-        </Box>
+      <div className="headerFilter">
+      <Avatar align="center" className={classes.avatar}>
+        <SearchIcon />
+      </Avatar>
+      <Typography  component="h1" variant="h5">
+        Clubs Filter
+      </Typography>
+      </div>
+
         <FormLabel className={classes.FormLabel} component="legend">Name:</FormLabel>
 
-        <form className={classes.root} noValidate autoComplete="off">
-        <TextField id="outlined-basic" variant="outlined" />
+        <form className={classes.root}>
+        <TextField variant="outlined" />
         </form>
           <FormControl className={classes.FormLabel} component="fieldset">
             <FormLabel component="legend">Privacy:</FormLabel>
@@ -111,10 +97,10 @@ export default function SearchClubs() {
             </RadioGroup>
           </FormControl>
 
-          <FormLabel component="legend">Category:</FormLabel>
+          <FormLabel className={classes.FormLabel} component="legend">Category:</FormLabel>
           <FormControl variant="filled" className={classes.FormLabel, classes.formControl}>
-            
-            
+
+
             <InputLabel id="demo-simple-select-filled-label">Ex: Sport</InputLabel>
             <Select
               labelId="demo-simple-select-filled-label"
@@ -140,11 +126,9 @@ export default function SearchClubs() {
           >
             Search
           </Button>
-          
+
       </div>
-      <Box mt={8}>
-        <Copyright />
-      </Box>
+
     </Container>
   );
 }
