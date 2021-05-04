@@ -1,0 +1,33 @@
+div.List {
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.List Button {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.FilterMain {
+  display: flex;
+  border: 2px solid grey;
+  align-items: stretch;
+  justify-content: space-around;
+  width: 70%;
+  margin: auto;
+  height: 1000px;
+
+}
+.searchWrapper {
+  border-right: 2px solid grey;
+  height: 100%;
+  width: 30%;
+  padding: 0;
+  margin: 0;
+}
+.listWrapper {
+  width: 70%;
+  overflow-y: scroll;
+}

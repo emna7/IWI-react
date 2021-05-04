@@ -63,7 +63,7 @@ const cards = [1, 2, 3, 4];
 
 export default function ClubsList() {
   const classes = useStyles();
-  
+
 
   return (
     <Container className={classes.cardGrid} component="main" maxWidth="xs">
@@ -85,12 +85,12 @@ export default function ClubsList() {
         avatar={
           <Avatar alt="Remy Sharp" src='https://source.unsplash.com/random' />
         }
-        
+
         title="What is Lorem Ipsum?"
       />
-                  
+
                   <CardContent className={classes.cardContent}>
-                    
+
                     <Typography>
                     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has........................
                     </Typography>
@@ -99,7 +99,7 @@ export default function ClubsList() {
                     <Button size="small" color="primary">
                       View
                     </Button>
-                    
+
                   </CardActions>
                 </Card>
               </Box>
