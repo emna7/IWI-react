@@ -1,8 +1,10 @@
 import './App.css';
 import { Route, Link } from 'react-router-dom';
-import Event from './Event';
+import SearchGigs from './searchGigs';
+import Login from './Login';
+import Signup from './Signup';
 import GigInterface from './gigInterface';
-import Club from './Club';
+import CreateClub from './CreateClub';
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
@@ -89,9 +91,6 @@ function App() {
   const classes = useStyles();
   return (
     <div className="App">
-      <Route exact path ="/Club" Component={Club}/>
-      <Route exact path ="/Event" Component={Event}/>
-      
       <React.Fragment>
       <CssBaseline />
       <AppBar position="relative">
@@ -169,6 +168,7 @@ function App() {
         </Typography>
         <Copyright />
       </footer>
+      <SearchGigs/>
       {/* End footer */}
     </React.Fragment>
     </div>

@@ -105,7 +105,7 @@ export default function SearchGigs() {
           <FormControl className={classes.FormLabel} component="fieldset">
             <FormLabel component="legend">Project duration:</FormLabel>
             <RadioGroup aria-label="gigs" name="gigs1" value={duration} onChange={handleChangeDuration}>
-              <FormControlLabel value="twohour" control={<Radio />} label="1-2 hour" />
+              <FormControlLabel value="twohour" control={<Radio />} label="1-2 hours" />
               <FormControlLabel value="halfaday" control={<Radio />} label="Half a day" />
               <FormControlLabel value="oneday" control={<Radio />} label="1 day" />
               <FormControlLabel value="morethanone" control={<Radio />} label="More than 1 day" />
